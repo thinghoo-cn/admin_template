@@ -137,6 +137,22 @@ url = "https://nexus.beijing-epoch.com/repository/pypi-thinghoo-group/simple"
 reference = "thinghoo"
 
 [[package]]
+name = "django-bootstrap3"
+version = "23.1"
+description = "Bootstrap 3 support for Django projects"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[package.source]
+type = "legacy"
+url = "https://nexus.beijing-epoch.com/repository/pypi-thinghoo-group/simple"
+reference = "thinghoo"
+
+[[package]]
 name = "exceptiongroup"
 version = "1.0.4"
 description = "Backport of PEP 654 (exception groups)"
@@ -663,7 +679,7 @@ reference = "thinghoo"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "d5ac354647a4e99a7c3445a693ec68d3f9fda9c6849e95ca3ec3e2933bec661d"
+content-hash = "bbe37217ca976d311409c029f10ce43d076e932a3b665fcfe7ec6c5c7b49b953"
 
 [metadata.files]
 asgiref = [
@@ -763,6 +779,10 @@ distlib = [
 django = [
     {file = "Django-3.2.16-py3-none-any.whl", hash = "sha256:18ba8efa36b69cfcd4b670d0fa187c6fe7506596f0ababe580e16909bcdec121"},
     {file = "Django-3.2.16.tar.gz", hash = "sha256:3adc285124244724a394fa9b9839cc8cd116faf7d159554c43ecdaa8cdf0b94d"},
+]
+django-bootstrap3 = [
+    {file = "django-bootstrap3-23.1.tar.gz", hash = "sha256:7095b7c66a89f3baeb78ea028799ebd795d29739fc8602460422e7c2a194ad30"},
+    {file = "django_bootstrap3-23.1-py3-none-any.whl", hash = "sha256:044ff0d34cd6a3928e0b7dc104a06b2f73e71bea237da5e9a477cc047a5d8e21"},
 ]
 exceptiongroup = [
     {file = "exceptiongroup-1.0.4-py3-none-any.whl", hash = "sha256:542adf9dea4055530d6e1279602fa5cb11dab2395fa650b8674eaec35fc4a828"},
