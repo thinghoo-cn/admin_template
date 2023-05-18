@@ -360,7 +360,6 @@ huey.log
 logs/*machine.py
 machine.py
 
-static
 data
 attach/dictionary/*
 
