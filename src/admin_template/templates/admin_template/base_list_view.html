@@ -1,0 +1,120 @@
+{% extends "admin_template/base.html" %}
+{% load static bootstrap3 %}
+
+{% block content %}
+    {# 表格内容区 #}
+    {#   按钮   #}
+    {% block search_field %}
+        <div class="panel panel-default">
+            <div class="panel-heading">搜索</div>
+            <div class="panel-body">
+                <!-- Right side -->
+                {% block search_inline %}
+                    <form class="form-inline" method="get">
+                        {% bootstrap_form filter.form layout='inline' %}
+                        <input class="btn btn-primary" type="submit" />
+                    </form>
+                {% endblock search_inline %}
+                <br>
+                {% block no_button %}
+                    <a class="btn btn-success"
+                       href="{% block create_url %}{% endblock create_url %}">
+                        {% block new_button %}
+                        {% endblock new_button %}
+                    </a>
+                {% endblock no_button %}
+            </div>
+        </div>
+    {% endblock search_field %}
+    <br>
+    {#   面板    #}
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            {% block list_name %}
+                发布服务器列表
+            {% endblock list_name %}
+        </div>
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table table-hover table-condensed ">
+                <thead>
+                    <tr>
+                        {% block list_items %}
+                            <th>ID</th>
+                            <th>产品名称</th>
+                            <th>发行版本</th>
+                            <th>创建时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        {% endblock list_items %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% block queryset_list %}
+                        {% for obj in queryset %}
+                            <tr>
+                                <td>{{ obj.id }}</td>
+                                <td>{{ obj.product.product_name }}</td>
+                                <td>{{ obj.release_version }}</td>
+                                <td>{{ obj.create_time|date:"Y-m-d" }}</td>
+                                <td>
+                                    <span class="tag is-info is-light">{{ obj.get_status_display }}</span>
+                                </td>
+                                <td>
+                                    <a class="view button is-link is-small"
+                                       href="/{{ entity }}/{{ obj.id }}">查 看</a>
+                                    <a class="edit button is-primary is-small"
+                                       href="/{{ entity }}/{{ obj.id }}/edit">编 辑</a>
+                                    <a class="del button is-danger is-small"
+                                       href="/{{ entity }}/{{ obj.id }}/delete">删 除</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endblock queryset_list %}
+                </tbody>
+            </table>
+        </div>
+        {% block pagination-block %}
+            <nav aria-label="Page navigation">
+                <div>
+                    <span class="step-links ">
+                        <ul class="pager">
+                            {% if page_obj.has_previous %}
+                                <li>
+                                    <a href="?page=1">&laquo; first</a>
+                                </li>
+                                <li>
+                                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+                            </li>
+                            {% if page_obj.has_next %}
+                                <li>
+                                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                </li>
+                                <li>
+                                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </span>
+                </div>
+            </nav>
+        {% endblock pagination-block %}
+    </div>
+{% endblock content %}
+{% block footer %}
+    <div class="container">
+        {#  分页  #}
+        <nav class="pagination is-rounded"
+             role="navigation"
+             aria-label="pagination">
+            {{ page_string }}
+        </nav>
+    </div>
+    <div class="mt-5"></div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "admin_template/base.html" %}
+{% load static bootstrap3 %}
+{% block title %}{% endblock title %}
+
+
+{% block content-center %}
+{{ form.media }}
+<div class="container">
+    <h1 class="title">{% block add_new %}{% endblock %}</h1>
+    <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="field">
+        <input class="btn btn-primary" type="submit" value='保存'>
+    </div>
+</div>
+{% endblock content-center %}

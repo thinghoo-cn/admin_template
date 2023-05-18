@@ -1,0 +1,7 @@
+{% if user.is_authenticated %}
+<!--empty-->
+{% else%}
+<a class="button is-light" href='/user/login'>
+    Log in
+</a>
+{% endif %}

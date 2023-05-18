@@ -1,0 +1,61 @@
+{% extends 'thinghoo_adminlte2/base.html' %}
+{% load static %}
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="shortcut icon"
+          type="image/png"
+          href="{% static 'favicon.ico' %}" />
+{% endblock stylesheets %}
+{% block page_name %}
+    <h1 class="title">默认 title</h1>
+    <hr>
+    {% block content-changelog %}
+        <a href="/{{ entity }}/changelog" class="btn btn-default">修改日志</a>
+    {% endblock content-changelog %}
+{% endblock page_name %}
+{% block content %}
+    <div class="">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    {% block button_area %}
+                    {% endblock button_area %}
+                </div>
+            </div>
+        </div>
+        <hr>
+        {% block content-center %}
+            <div class="row">
+                <div class="col-md-8">
+                    {{ form.media }}
+                    {% block content-body %}
+                        默认内容
+                    {% endblock content-body %}
+                    <hr>
+                    {% block button-link %}
+                        <a href="/{{ entity }}/{{ object.id }}/edit" class='btn btn-default'>Edit</a>
+                        <a href="/{{ entity }}/list" class="btn btn-primary">Back</a>
+                    {% endblock button-link %}
+                </div>
+                {% block content-sidebar %}
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                {% block panel-heading %}
+                                    panel heading
+                                {% endblock panel-heading %}
+                            </div>
+                            <div class="panel-body">
+                                {% block panel-content %}
+                                    panel content
+                                {% endblock panel-content %}
+                            </div>
+                        </div>
+                        {% block extra_side_content %}
+                        {% endblock extra_side_content %}
+                    </div>
+                {% endblock content-sidebar %}
+            </div>
+        {% endblock content-center %}
+    </div>
+{% endblock content %}
