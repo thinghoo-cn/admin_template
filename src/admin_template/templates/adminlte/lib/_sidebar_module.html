@@ -1,0 +1,7 @@
+{% load is_active %}
+
+<li class='{% is_active "/{{ entity }}/" %}'>
+    <a href="/{{ entity }}/list">
+        <i class="fa {{ logo }}"></i> <span>{{ name }}</span>
+    </a>
+</li>
