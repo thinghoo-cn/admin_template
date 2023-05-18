@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_bootstrap3",
+    "bootstrap3",
     "admin_template",
+    "thinghoo_adminlte2",
+    "django_adminlte",
 ]
 
 MIDDLEWARE = [
