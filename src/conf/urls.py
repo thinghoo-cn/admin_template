@@ -15,17 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.shortcuts import render
-from django.urls import path
-
-
-def home(request):
-    return render(
-        request,
-        "admin_template/home.html",
-    )
+from django.urls import path, include
 
 
 urlpatterns = [
-    path("", home),
+    path("", include("admin_template.urls")),
     path("admin/", admin.site.urls),
 ]

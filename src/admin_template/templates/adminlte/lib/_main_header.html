@@ -1,7 +1,7 @@
 {% extends 'adminlte/lib/_main_header.html' %}
 {% load i18n %}
 
-{% block logo_text %}RDES{% endblock %}
+{% block logo_text %}{{ sidebar_config.system_title }}{% endblock %}
 
 {% block header_dropdowns %}
     {% if request.user.is_authenticated %}

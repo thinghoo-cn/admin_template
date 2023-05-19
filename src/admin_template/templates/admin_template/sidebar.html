@@ -1,8 +1,0 @@
-{% comment %} not work by now {% endcomment %}
-{% for sidebar in sidebar_list %}
-    <li class='{% is_active sidebar.url %}'>
-        <a href="{{ sidebar.url }}">
-            <i class="{{ sidebar.icon }}"></i> <span>{{ sidebar.name }}</span>
-        </a>
-    </li>
-{% endfor %}

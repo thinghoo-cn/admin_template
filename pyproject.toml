@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "admin_template"
 version = "0.1.0"
-description = ""
+description = "一个基础管理系统的模板"
 authors = ["svtter <xiuhao@thinghoo.com>"]
 
 [tool.poetry.dependencies]
