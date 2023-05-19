@@ -32,8 +32,8 @@ INSTALLED_APPS = [
 
 ## 使用
 
-`from admin_template.views.generic import SidebarTemplateView`: views: 使用 SideBar 时，可以继承 `SideBarView`:
-`from admin_template.views.mixin import SidebarMixin`: 集成 mixin 的时候，可以通过设置`sidebar`来完成系统部署。
+- `views`: `from admin_template.views.generic import SidebarTemplateView`: views: 使用 SideBar 时，可以继承 `SideBarView`:
+- `mixins`: `from admin_template.views.mixin import SidebarMixin`: 集成 mixin 的时候，可以通过设置`sidebar`来完成系统部署。
 
 例如：
 
